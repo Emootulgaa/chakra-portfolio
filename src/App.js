@@ -1,42 +1,37 @@
-import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
-
-function App() {
+import React,{useRef} from "react";
+import {useDisclosure} from "@chakra-ui/react";
+import Nav from "./components/Nav";
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import Home from "./components/Home";
+import About from './components/About';
+import Contact from './components/Contact';
+import Experience from './components/Experience';
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import End from "./components/End";
+import Drawercom from "./components/drawer";
+import Test from "./components/Test"
+function App(){
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const btnRef = useRef();
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
-    </ChakraProvider>
-  );
+  <>
+    <BrowserRouter>
+         <Nav ref={btnRef} onOpen={onOpen}/>
+         <Drawercom isOpen={isOpen} onClose={onClose} btnRef={btnRef}/>
+         <Routes>
+           <Route path='/' element={<Home/>}/>
+           <Route path='/about' element={<About/>}/>
+           <Route path="/projects" element={<Projects/>}/>
+           <Route path="/skills" element={<Skills/>}/>
+           <Route path="/contact" element={<Contact/>}/>
+           <Route path="/experience" element={<Experience/>}/>
+           <Route path="/test" element={<Test/>}/>
+         </Routes>
+         <End/>
+     </BrowserRouter>
+  </>
+  ); 
 }
 
 export default App;
