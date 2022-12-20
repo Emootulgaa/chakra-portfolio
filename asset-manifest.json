@@ -1,0 +1,12 @@
+{
+  "files": {
+    "main.js": "/chakra-portfolio/static/js/main.2133cc0a.js",
+    "static/media/minii_zurag.jpg": "/chakra-portfolio/static/media/minii_zurag.c197fac5f43bb3e93e38.jpg",
+    "static/media/bugant.jpg": "/chakra-portfolio/static/media/bugant.5a05ad62c9c1743b8cc3.jpg",
+    "index.html": "/chakra-portfolio/index.html",
+    "main.2133cc0a.js.map": "/chakra-portfolio/static/js/main.2133cc0a.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.2133cc0a.js"
+  ]
+}
